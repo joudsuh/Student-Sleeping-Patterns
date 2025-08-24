@@ -1,28 +1,30 @@
 # Student Sleeping Patterns 💤
 
-Analyze and visualize student sleeping behaviors to uncover patterns that affect focus, grades, and well-being. This repository includes cleaned data, notebooks, and reproducible analysis for exploring relationships between bedtime, wake time, study load, caffeine, and academic performance.
+Analyze and visualize student sleeping behaviors to uncover patterns that affect focus, grades, and well-being.
 
-## 🔍 Key Questions
-- What are the typical sleep durations and chronotypes among students?
-- How do bedtime/wake time correlate with GPA or self-reported focus?
-- Which factors (caffeine, screen time, workload) are most associated with poor sleep?
-
-## 🗂️ Repository Structure
+## Repository Structure
 .
 ├─ data/
-│ ├─ raw/ # original data (KEEP OUT of git if large/private)
-│ ├─ processed/ # cleaned datasets
-│ └─ sample.csv # small sample for demo/repro
-├─ notebooks/
-│ ├─ 01_explore.ipynb # EDA: distributions, missingness, outliers
-│ ├─ 02_clean.ipynb # cleaning, feature engineering
-│ └─ 03_model.ipynb # simple models / correlations
-├─ src/
-│ ├─ data_prep.py # functions for cleaning/validation
-│ ├─ features.py # feature engineering helpers
-│ └─ viz.py # plotting utilities
+│ ├─ raw/ # original data (not committed)
+│ ├─ processed/ # cleaned data (not committed)
+│ └─ sample.csv # tiny sample included for demo
+├─ notebooks/ # analysis notebooks (add as needed)
+├─ src/ # reusable Python modules
+│ ├─ data_prep.py
+│ ├─ features.py
+│ └─ viz.py
 ├─ reports/
-│ └─ figures/ # exported charts
+│ └─ figures/
 ├─ requirements.txt
+├─ README.md
 ├─ .gitignore
 └─ LICENSE
+## Quickstart
+
+```bash
+pip install -r requirements.txt
+
+from src.data_prep import load_sample, clean
+df = load_sample("data/sample.csv")
+df = clean(df)
+print(df.head())
