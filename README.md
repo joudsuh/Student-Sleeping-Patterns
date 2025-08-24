@@ -1,45 +1,28 @@
-# Student Sleeping Patterns
+# Student Sleeping Patterns 💤
 
-Analyze how students' sleep habits relate to study time, activity, and other factors. 
-This repo includes a clean, reproducible pipeline and example models (Random Forest and Logistic Regression).
+Analyze and visualize student sleeping behaviors to uncover patterns that affect focus, grades, and well-being. This repository includes cleaned data, notebooks, and reproducible analysis for exploring relationships between bedtime, wake time, study load, caffeine, and academic performance.
 
-## Project Structure
-```text
-student-sleeping-patterns/
-├─ src/
-│  └─ main.py                # training & evaluation script
+## 🔍 Key Questions
+- What are the typical sleep durations and chronotypes among students?
+- How do bedtime/wake time correlate with GPA or self-reported focus?
+- Which factors (caffeine, screen time, workload) are most associated with poor sleep?
+
+## 🗂️ Repository Structure
+.
 ├─ data/
-│  └─ student_sleep_patterns.csv
+│ ├─ raw/ # original data (KEEP OUT of git if large/private)
+│ ├─ processed/ # cleaned datasets
+│ └─ sample.csv # small sample for demo/repro
+├─ notebooks/
+│ ├─ 01_explore.ipynb # EDA: distributions, missingness, outliers
+│ ├─ 02_clean.ipynb # cleaning, feature engineering
+│ └─ 03_model.ipynb # simple models / correlations
+├─ src/
+│ ├─ data_prep.py # functions for cleaning/validation
+│ ├─ features.py # feature engineering helpers
+│ └─ viz.py # plotting utilities
 ├─ reports/
-│  ├─ confusion_matrix_rf.png
-│  └─ confusion_matrix_lr.png
+│ └─ figures/ # exported charts
 ├─ requirements.txt
 ├─ .gitignore
-└─ README.md
-```
-
-## Quickstart
-1) (Optional) Create a virtual env
-```bash
-# Windows
-python -m venv venv && venv\Scripts\activate
-# macOS/Linux
-python3 -m venv venv && source venv/bin/activate
-```
-
-2) Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-3) Run
-```bash
-python src/main.py
-```
-
-The script will print accuracy and a classification report for two models and save confusion matrices in `reports/`.
-
-## Notes
-- The script automatically drops `Student_ID` if present (identifier, not a predictive feature).
-- Categorical features are one-hot encoded; numeric features are standardized.
-- Train/test split is stratified by `Sleep_Quality`.
+└─ LICENSE
