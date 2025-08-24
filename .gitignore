@@ -1,4 +1,37 @@
-venv/
+
+### B) `.gitignore` (add to or replace the auto Python template)
+
+```gitignore
+# Byte-compiled / cache
 __pycache__/
+*.py[cod]
+*.egg-info/
+
+# Jupyter
 .ipynb_checkpoints/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Environments & IDE
+.venv/
+venv/
+.env
+.env.*
+*.code-workspace
+.vscode/
+
+# Data (keep only small sample files in git)
+data/raw/**
+data/processed/**
+!data/sample.csv
+!data/.gitkeep
+
+# Outputs
+reports/figures/**
+!reports/figures/.gitkeep
+
+# Logs & temp
+*.log
+tmp/
